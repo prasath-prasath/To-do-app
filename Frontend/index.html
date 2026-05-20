@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager - Organize Your Work</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>📋 Task Manager</h1>
+                <p class="subtitle">Organize, track, and complete your tasks</p>
+            </div>
+            <div class="auth-section">
+                <button id="loginBtn" class="btn btn-primary" style="display: none;">Login</button>
+                <button id="registerBtn" class="btn btn-secondary" style="display: none;">Register</button>
+                <button id="logoutBtn" class="btn btn-danger" style="display: none;">Logout</button>
+                <span id="userDisplay" class="user-display" style="display: none;"></span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Authentication Section -->
+            <section id="authSection" class="auth-container">
+                <!-- Login Form -->
+                <div id="loginForm" class="form-card" style="display: none;">
+                    <h2>Login to Your Account</h2>
+                    <form id="loginFormElement">
+                        <div class="form-group">
+                            <label for="loginEmail">Email:</label>
+                            <input type="email" id="loginEmail" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password:</label>
+                            <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                        <p class="form-link">Don't have an account? <a href="#" onclick="toggleForms()" class="link">Register here</a></p>
+                    </form>
+                </div>
+
+                <!-- Register Form -->
+                <div id="registerForm" class="form-card">
+                    <h2>Create New Account</h2>
+                    <form id="registerFormElement">
+                        <div class="form-group">
+                            <label for="regUsername">Username:</label>
+                            <input type="text" id="regUsername" placeholder="Choose a username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="regEmail">Email:</label>
+                            <input type="email" id="regEmail" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="regPassword">Password:</label>
+                            <input type="password" id="regPassword" placeholder="Create a password (min 6 characters)" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Register</button>
+                        <p class="form-link">Already have an account? <a href="#" onclick="toggleForms()" class="link">Login here</a></p>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Task Management Section -->
+            <section id="taskSection" class="task-container" style="display: none;">
+                <!-- Add Task Form -->
+                <div class="add-task-card">
+                    <h2>Add New Task</h2>
+                    <form id="addTaskForm">
+                        <div class="form-group">
+                            <input type="text" id="taskTitle" placeholder="Enter task title" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" id="taskDescription" placeholder="Add description (optional)">
+                            </div>
+                            <div class="form-group">
+                                <select id="taskPriority">
+                                    <option value="low">Low Priority</option>
+                                    <option value="medium" selected>Medium Priority</option>
+                                    <option value="high">High Priority</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-success">➕ Add Task</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Tasks List -->
+                <div class="tasks-list">
+                    <h2>Your Tasks</h2>
+                    <div id="tasksList" class="tasks-grid">
+                        <!-- Tasks will be loaded here -->
+                    </div>
+                    <div id="emptyState" class="empty-state">
+                        <p>📭 No tasks yet. Create one to get started!</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2026 Task Manager. Built with HTML, CSS & JavaScript</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

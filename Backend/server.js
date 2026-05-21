@@ -11,15 +11,11 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
+const mongoose = require("mongoose");
 
-// MongoDB Connection
-mongoose.connect("mongodb://127.0.0.1:27017/taskmanager")
-    .then(() => console.log("✓ MongoDB Connected Successfully"))
-    .catch(err => {
-        console.error("✗ MongoDB Connection Error:", err.message);
-        process.exit(1);
-    });
-
+mongoose.connect(process.env.MONGO_URI)
+.then(() => console.log("✓ MongoDB Connected"))
+.catch(err => console.log("✗ MongoDB Connection Error:", err));
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/tasks", taskRoutes);

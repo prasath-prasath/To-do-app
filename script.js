@@ -1,5 +1,5 @@
 // ===== API Configuration =====
-const API_BASE = "http://localhost:5000/api";
+const API_BASE = "https://todo-backend-396u.onrender.com/api";
 const TASKS_API = `${API_BASE}/tasks`;
 const AUTH_API = `${API_BASE}/auth`;
 
